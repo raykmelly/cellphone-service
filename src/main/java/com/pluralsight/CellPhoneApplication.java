@@ -12,20 +12,12 @@ public class CellPhoneApplication {
 
         // Prompt for the information needed in cellPhone
         System.out.println("[Enter the information needed for your cell phone]");
-        System.out.println("-> What is the serial number?:");
-        int serialNumber = scanner.nextInt();
+        int serialNumber = Integer.parseInt(askQuestion(scanner,"-> What is the serial number?"));
 
-        // Fix the scanner
-        scanner.nextLine();
-
-        System.out.println("-> What model is the phone?:");
-        String model = scanner.nextLine();
-        System.out.println("-> Who is the carrier?:");
-        String carrier = scanner.nextLine();
-        System.out.println("-> What is the phone number?:");
-        String phoneNumber = scanner.nextLine();
-        System.out.println("-> Who is the owner of the phone?:");
-        String owner = scanner.nextLine();
+        String model = askQuestion(scanner,"-> What model is the phone?");
+        String carrier = askQuestion(scanner,"-> Who is the carrier?");
+        String phoneNumber = askQuestion(scanner,"-> What is the phone number?");
+        String owner = askQuestion(scanner,"-> Who is the owner of the phone?");
 
         // Use the setters to set the parameters of the cellPhone object
         cellPhone.setSerialNumber(serialNumber);
@@ -43,5 +35,10 @@ public class CellPhoneApplication {
 
         // Close the scanner
         scanner.close();
+    }
+
+    public static String askQuestion(Scanner scanner, String question) {
+        System.out.println(question + ":");
+        return scanner.nextLine();
     }
 }
