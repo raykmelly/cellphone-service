@@ -17,6 +17,11 @@ public class CellPhone {
         this.owner = "";
     }
 
+    // Dial method displays that the owner of the phone is calling a number
+    public void dial(String phoneNumber) {
+        System.out.println(this.owner + "'s phone is calling " + phoneNumber);
+    }
+
     // Getters and setters for parameters
     public int getSerialNumber() {
         return serialNumber;
